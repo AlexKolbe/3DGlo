@@ -10,4 +10,11 @@ module.exports = {
 	optimization: {
 		minimize: true, // принудительно включает минификацию даже в development
 	},
+	devServer: {
+		hot: true,
+		static: {
+			directory: './dist',
+			watch: true
+		}
+	}
 };
