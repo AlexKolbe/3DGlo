@@ -1,7 +1,9 @@
 import timer from './modules/timer'
-import two from './modules/two'
+import menu from './modules/menu'
+import modal from './modules/modal'
 
 timer('25 february 2026');
-two();
+menu();
+modal();
 console.log('Hello, webpack!');
 
