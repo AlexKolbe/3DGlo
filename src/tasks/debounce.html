@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debounce Input</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .container {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 600px;
+        text-align: center;
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 10px;
+        font-size: 2.2rem;
+      }
+
+      .subtitle {
+        color: #666;
+        margin-bottom: 30px;
+        font-size: 1rem;
+      }
+
+      .input-group {
+        margin-bottom: 30px;
+        position: relative;
+      }
+
+      .input-label {
+        display: block;
+        text-align: left;
+        color: #555;
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
+
+      .input-field {
+        width: 100%;
+        padding: 15px 20px;
+        font-size: 1.1rem;
+        border: 2px solid #ddd;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        outline: none;
+        font-family: inherit;
+      }
+
+      .input-field:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      }
+
+      .input-field::placeholder {
+        color: #aaa;
+      }
+
+      .output-group {
+        margin-top: 40px;
+        background: #f8f9fa;
+        border-radius: 12px;
+        padding: 30px;
+        text-align: left;
+        border: 2px dashed #dee2e6;
+      }
+
+      .output-label {
+        display: block;
+        color: #666;
+        margin-bottom: 10px;
+        font-weight: 500;
+      }
+
+      .output-text {
+        font-size: 1.2rem;
+        color: #333;
+        line-height: 1.6;
+        min-height: 80px;
+        padding: 15px;
+        background: white;
+        border-radius: 8px;
+        border-left: 4px solid #667eea;
+        transition: all 0.3s ease;
+      }
+
+      .output-text.empty {
+        color: #aaa;
+        font-style: italic;
+      }
+
+      .status {
+        margin-top: 20px;
+        padding: 12px 20px;
+        border-radius: 8px;
+        background: #e9ecef;
+        color: #666;
+        font-size: 0.9rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .timer {
+        font-weight: bold;
+        color: #667eea;
+      }
+
+      .instructions {
+        margin-top: 30px;
+        padding: 20px;
+        background: #f0f4ff;
+        border-radius: 12px;
+        text-align: left;
+        color: #444;
+      }
+
+      .instructions h3 {
+        color: #667eea;
+        margin-bottom: 10px;
+      }
+
+      .instructions ul {
+        padding-left: 20px;
+      }
+
+      .instructions li {
+        margin-bottom: 8px;
+      }
+
+      .footer {
+        margin-top: 30px;
+        color: #888;
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 25px;
+        }
+
+        h1 {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+
+    <script src="debounce.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>⏱️ Debounce Input</h1>
+      <p class="subtitle">
+        Текст обновляется с задержкой 300 мс после остановки ввода
+      </p>
+
+      <div class="input-group">
+        <label class="input-label" for="textInput">Введите текст:</label>
+        <input
+          type="text"
+          id="textInput"
+          class="input-field"
+          placeholder="Начните печатать здесь..."
+          autocomplete="off"
+        />
+      </div>
+
+      <div class="output-group">
+        <label class="output-label">Отображение с задержкой:</label>
+        <div id="outputText" class="output-text empty">
+          Здесь будет отображаться ваш текст...
+        </div>
+      </div>
+
+      <div class="status">
+        <span>Статус: <span id="status">Ожидание ввода...</span></span>
+        <span class="timer">Таймер: <span id="timer">0</span> мс</span>
+      </div>
+
+      <div class="instructions">
+        <h3>Как это работает:</h3>
+        <ul>
+          <li>Каждый введённый символ запускает новый таймер на 300 мс</li>
+          <li>Предыдущий таймер сбрасывается при новом вводе</li>
+          <li>Текст обновляется только после паузы в 300 мс</li>
+          <li>Это полезно для оптимизации частых обновлений UI</li>
+        </ul>
+      </div>
+
+      <div class="footer">
+        Технология: Debounce | Задержка: 300 мс | Обновляется в реальном времени
+      </div>
+    </div>
+  </body>
+</html>

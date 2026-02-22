@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Текущая дата и время</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            margin: 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .greeting {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #ffde7d;
+        }
+        .day {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #a8e6cf;
+        }
+        .time {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: #ffaaa5;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+        .new-year {
+            font-size: 1.6rem;
+            margin-top: 30px;
+            color: #a8e6cf;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📅 Текущая дата и время</h1>
+        <div id="greeting" class="greeting">Добрый день</div>
+        <div id="day" class="day">Сегодня: Понедельник</div>
+        <div id="currentTime" class="time">Текущее время: 12:05:15 PM</div>
+        <div id="newYearCountdown" class="new-year">До нового года осталось 175 дней</div>
+        <div class="footer">Обновляется каждую секунду</div>
+    </div>
+
+    <script src="datetime.js"></script>
+</body>
+</html>
