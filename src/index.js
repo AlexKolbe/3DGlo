@@ -1,7 +1,7 @@
-import one from './modules/one'
+import timer from './modules/timer'
 import two from './modules/two'
 
-one();
+timer('25 february 2026');
 two();
 console.log('Hello, webpack!');
 

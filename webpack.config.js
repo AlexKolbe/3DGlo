@@ -5,7 +5,7 @@ module.exports = {
 	entry: './src/index.js', // указываем путь к существующему файлу
 	output: {
 		filename: 'main.js',
-		path: path.resolve(__dirname, 'dist'),
+		path: path.resolve(__dirname, 'dist/js/'),
 	},
 	optimization: {
 		minimize: true, // принудительно включает минификацию даже в development
